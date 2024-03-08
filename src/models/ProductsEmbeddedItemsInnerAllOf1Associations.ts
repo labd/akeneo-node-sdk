@@ -20,11 +20,23 @@ import { exists, mapValues } from '../runtime';
  */
 export interface ProductsEmbeddedItemsInnerAllOf1Associations {
     /**
-     * 
-     * @type {object}
+     * Array of groups codes with which the product is in relation
+     * @type {Array<string>}
      * @memberof ProductsEmbeddedItemsInnerAllOf1Associations
      */
-    additionalProperties?: object;
+    groups?: Array<string>;
+    /**
+     * Array of product identifiers with which the product is in relation
+     * @type {Array<string>}
+     * @memberof ProductsEmbeddedItemsInnerAllOf1Associations
+     */
+    products?: Array<string>;
+    /**
+     * Array of product model codes with which the product is in relation (only available since the v2.1)
+     * @type {Array<string>}
+     * @memberof ProductsEmbeddedItemsInnerAllOf1Associations
+     */
+    productModels?: Array<string>;
 }
 
 /**
@@ -46,7 +58,9 @@ export function ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSONTyped(json: 
     }
     return {
         
-        'additionalProperties': !exists(json, 'additionalProperties') ? undefined : json['additionalProperties'],
+        'groups': !exists(json, 'groups') ? undefined : json['groups'],
+        'products': !exists(json, 'products') ? undefined : json['products'],
+        'productModels': !exists(json, 'product_models') ? undefined : json['product_models'],
     };
 }
 
@@ -59,7 +73,9 @@ export function ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON(value?: Produ
     }
     return {
         
-        'additionalProperties': value.additionalProperties,
+        'groups': value.groups,
+        'products': value.products,
+        'product_models': value.productModels,
     };
 }
 

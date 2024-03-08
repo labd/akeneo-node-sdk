@@ -208,6 +208,7 @@ src/models/GetEndpoints200Response.ts
 src/models/GetMediaFilesCode200Response.ts
 src/models/GetMediaFilesCode200ResponseLinks.ts
 src/models/GetProducts401Response.ts
+src/models/GetProductsCode200Response.ts
 src/models/GetReferenceEntitiesCode200Response.ts
 src/models/GetReferenceEntitiesCode200ResponseLinks.ts
 src/models/GetReferenceEntitiesCodeAttributes200ResponseInner.ts
@@ -309,6 +310,8 @@ src/models/PostMediaFilesRequest.ts
 src/models/PostPamAssetsRequest.ts
 src/models/PostProductModelsRequest.ts
 src/models/PostProductsRequest.ts
+src/models/PostProductsRequestAssociations.ts
+src/models/PostProductsRequestAssociationsAssociationTypeCode.ts
 src/models/PostProductsUuidRequest.ts
 src/models/PostReferenceEntityMediaFilesRequest.ts
 src/models/PostReferenceFilesLocaleCode201Response.ts
@@ -372,7 +375,6 @@ src/models/ProductsEmbeddedItemsInner.ts
 src/models/ProductsEmbeddedItemsInnerAllOf.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1Associations.ts
-src/models/ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1CompletenessesInner.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1Metadata.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations.ts

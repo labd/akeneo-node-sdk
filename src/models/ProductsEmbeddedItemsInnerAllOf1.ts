@@ -38,7 +38,6 @@ import {
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations';
 import type { ProductsEmbeddedItemsInnerAllOf1ValuesValueInner } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
-import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
 import {
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON,
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSONTyped,
@@ -101,11 +100,10 @@ export interface ProductsEmbeddedItemsInnerAllOf1 {
     values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
      * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode}
+     * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
      * @memberof ProductsEmbeddedItemsInnerAllOf1
      */
-    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
-
+    associations?: ProductsEmbeddedItemsInnerAllOf1Associations;
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -163,7 +161,7 @@ export function ProductsEmbeddedItemsInnerAllOf1FromJSONTyped(json: any, ignoreD
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'identifier': json['identifier'],
         'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
@@ -190,7 +188,7 @@ export function ProductsEmbeddedItemsInnerAllOf1ToJSON(value?: ProductsEmbeddedI
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'identifier': value.identifier,
         'enabled': value.enabled,

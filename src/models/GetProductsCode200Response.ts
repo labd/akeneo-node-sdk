@@ -13,18 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostProductsRequestValues } from './PostProductsRequestValues';
+import type { PostProductsRequestAssociations } from './PostProductsRequestAssociations';
 import {
-    PostProductsRequestValuesFromJSON,
-    PostProductsRequestValuesFromJSONTyped,
-    PostProductsRequestValuesToJSON,
-} from './PostProductsRequestValues';
-import type { ProductsEmbeddedItemsInnerAllOf1Associations } from './ProductsEmbeddedItemsInnerAllOf1Associations';
-import {
-    ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSON,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSONTyped,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON,
-} from './ProductsEmbeddedItemsInnerAllOf1Associations';
+    PostProductsRequestAssociationsFromJSON,
+    PostProductsRequestAssociationsFromJSONTyped,
+    PostProductsRequestAssociationsToJSON,
+} from './PostProductsRequestAssociations';
 import type { ProductsEmbeddedItemsInnerAllOf1CompletenessesInner } from './ProductsEmbeddedItemsInnerAllOf1CompletenessesInner';
 import {
     ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerFromJSON,
@@ -38,12 +32,17 @@ import {
     ProductsEmbeddedItemsInnerAllOf1MetadataToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1Metadata';
 import type { ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations } from './ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations';
-import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
 import {
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSON,
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSONTyped,
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations';
+import type { ProductsEmbeddedItemsInnerAllOf1ValuesValueInner } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
+import {
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
 
 /**
  * 
@@ -94,18 +93,17 @@ export interface GetProductsCode200Response {
      */
     parent?: string;
     /**
-     * 
-     * @type {PostProductsRequestValues}
+     * Product attributes values, see <a href='/concepts/products.html#focus-on-the-product-values'>Product values</a> section for more details
+     * @type {{ [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; }}
      * @memberof GetProductsCode200Response
      */
-    values?: PostProductsRequestValues;
+    values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
      * 
-     * @type { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
+     * @type {PostProductsRequestAssociations}
      * @memberof GetProductsCode200Response
      */
-    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
-
+    associations?: PostProductsRequestAssociations;
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -163,7 +161,7 @@ export function GetProductsCode200ResponseFromJSONTyped(json: any, ignoreDiscrim
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'identifier': json['identifier'],
         'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
@@ -171,8 +169,8 @@ export function GetProductsCode200ResponseFromJSONTyped(json: any, ignoreDiscrim
         'categories': !exists(json, 'categories') ? undefined : json['categories'],
         'groups': !exists(json, 'groups') ? undefined : json['groups'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
-        'values': !exists(json, 'values') ? undefined : PostProductsRequestValuesFromJSON(json['values']),
-        'associations': !exists(json, 'associations') ? undefined : ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSON(json['associations']),
+        'values': !exists(json, 'values') ? undefined : json['values'],
+        'associations': !exists(json, 'associations') ? undefined : PostProductsRequestAssociationsFromJSON(json['associations']),
         'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSON(json['quantified_associations']),
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
@@ -190,7 +188,7 @@ export function GetProductsCode200ResponseToJSON(value?: GetProductsCode200Respo
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'identifier': value.identifier,
         'enabled': value.enabled,
@@ -198,8 +196,8 @@ export function GetProductsCode200ResponseToJSON(value?: GetProductsCode200Respo
         'categories': value.categories,
         'groups': value.groups,
         'parent': value.parent,
-        'values': PostProductsRequestValuesToJSON(value.values),
-        'associations': ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON(value.associations),
+        'values': value.values,
+        'associations': PostProductsRequestAssociationsToJSON(value.associations),
         'quantified_associations': ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON(value.quantifiedAssociations),
         'created': value.created,
         'updated': value.updated,

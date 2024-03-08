@@ -21,33 +21,33 @@ import {
 } from './PostProductsRequestAssociationsAssociationTypeCode';
 
 /**
- * Several associations related to groups, product and/or other product models, grouped by association types
+ * Several associations related to groups, product models and/or other products, grouped by association types
  * @export
- * @interface ProductModelsEmbeddedItemsInnerAllOfAssociations
+ * @interface PostProductsRequestAssociations
  */
-export interface ProductModelsEmbeddedItemsInnerAllOfAssociations {
+export interface PostProductsRequestAssociations {
     /**
      * 
      * @type {PostProductsRequestAssociationsAssociationTypeCode}
-     * @memberof ProductModelsEmbeddedItemsInnerAllOfAssociations
+     * @memberof PostProductsRequestAssociations
      */
     associationTypeCode?: PostProductsRequestAssociationsAssociationTypeCode;
 }
 
 /**
- * Check if a given object implements the ProductModelsEmbeddedItemsInnerAllOfAssociations interface.
+ * Check if a given object implements the PostProductsRequestAssociations interface.
  */
-export function instanceOfProductModelsEmbeddedItemsInnerAllOfAssociations(value: object): boolean {
+export function instanceOfPostProductsRequestAssociations(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSON(json: any): ProductModelsEmbeddedItemsInnerAllOfAssociations {
-    return ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSONTyped(json, false);
+export function PostProductsRequestAssociationsFromJSON(json: any): PostProductsRequestAssociations {
+    return PostProductsRequestAssociationsFromJSONTyped(json, false);
 }
 
-export function ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSONTyped(json: any, ignoreDiscriminator: boolean): ProductModelsEmbeddedItemsInnerAllOfAssociations {
+export function PostProductsRequestAssociationsFromJSONTyped(json: any, ignoreDiscriminator: boolean): PostProductsRequestAssociations {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -57,7 +57,7 @@ export function ProductModelsEmbeddedItemsInnerAllOfAssociationsFromJSONTyped(js
     };
 }
 
-export function ProductModelsEmbeddedItemsInnerAllOfAssociationsToJSON(value?: ProductModelsEmbeddedItemsInnerAllOfAssociations | null): any {
+export function PostProductsRequestAssociationsToJSON(value?: PostProductsRequestAssociations | null): any {
     if (value === undefined) {
         return undefined;
     }

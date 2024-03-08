@@ -13,13 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
-import {
-    ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCodeFromJSON,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCodeFromJSONTyped,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCodeToJSON,
-} from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
-
 /**
  * Several associations related to groups, product models and/or other products, grouped by association types
  * @export
@@ -28,10 +21,10 @@ import {
 export interface ProductsEmbeddedItemsInnerAllOf1Associations {
     /**
      * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode}
+     * @type {object}
      * @memberof ProductsEmbeddedItemsInnerAllOf1Associations
      */
-    associationTypeCode?: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode;
+    additionalProperties?: object;
 }
 
 /**
@@ -53,7 +46,7 @@ export function ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSONTyped(json: 
     }
     return {
         
-        'associationTypeCode': !exists(json, 'associationTypeCode') ? undefined : ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCodeFromJSON(json['associationTypeCode']),
+        'additionalProperties': !exists(json, 'additionalProperties') ? undefined : json['additionalProperties'],
     };
 }
 
@@ -66,7 +59,7 @@ export function ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON(value?: Produ
     }
     return {
         
-        'associationTypeCode': ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCodeToJSON(value.associationTypeCode),
+        'additionalProperties': value.additionalProperties,
     };
 }
 

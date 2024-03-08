@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProductsEmbeddedItemsInnerAllOf1Associations } from './ProductsEmbeddedItemsInnerAllOf1Associations';
+import type { PostProductsRequestAssociations } from './PostProductsRequestAssociations';
 import {
-    ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSON,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSONTyped,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON,
-} from './ProductsEmbeddedItemsInnerAllOf1Associations';
+    PostProductsRequestAssociationsFromJSON,
+    PostProductsRequestAssociationsFromJSONTyped,
+    PostProductsRequestAssociationsToJSON,
+} from './PostProductsRequestAssociations';
 import type { ProductsEmbeddedItemsInnerAllOf1CompletenessesInner } from './ProductsEmbeddedItemsInnerAllOf1CompletenessesInner';
 import {
     ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerFromJSON,
@@ -38,7 +38,6 @@ import {
     ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON,
 } from './ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations';
 import type { ProductsEmbeddedItemsInnerAllOf1ValuesValueInner } from './ProductsEmbeddedItemsInnerAllOf1ValuesValueInner';
-import type { ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode } from './ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode';
 import {
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSON,
     ProductsEmbeddedItemsInnerAllOf1ValuesValueInnerFromJSONTyped,
@@ -101,11 +100,10 @@ export interface Product {
     values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
      * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode}
+     * @type {PostProductsRequestAssociations}
      * @memberof Product
      */
-    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsAssociationTypeCode; }
-
+    associations?: PostProductsRequestAssociations;
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -163,7 +161,7 @@ export function ProductFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'identifier': json['identifier'],
         'enabled': !exists(json, 'enabled') ? undefined : json['enabled'],
@@ -172,7 +170,7 @@ export function ProductFromJSONTyped(json: any, ignoreDiscriminator: boolean): P
         'groups': !exists(json, 'groups') ? undefined : json['groups'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
         'values': !exists(json, 'values') ? undefined : json['values'],
-        'associations': !exists(json, 'associations') ? undefined : ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSON(json['associations']),
+        'associations': !exists(json, 'associations') ? undefined : PostProductsRequestAssociationsFromJSON(json['associations']),
         'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSON(json['quantified_associations']),
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
@@ -190,7 +188,7 @@ export function ProductToJSON(value?: Product | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'identifier': value.identifier,
         'enabled': value.enabled,
@@ -199,7 +197,7 @@ export function ProductToJSON(value?: Product | null): any {
         'groups': value.groups,
         'parent': value.parent,
         'values': value.values,
-        'associations': ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON(value.associations),
+        'associations': PostProductsRequestAssociationsToJSON(value.associations),
         'quantified_associations': ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON(value.quantifiedAssociations),
         'created': value.created,
         'updated': value.updated,

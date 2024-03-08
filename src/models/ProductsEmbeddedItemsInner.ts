@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { ProductsEmbeddedItemsInnerAllOf1Associations } from './ProductsEmbeddedItemsInnerAllOf1Associations';
+import type { ProductsEmbeddedItemsInnerAllOf1AssociationsValue } from './ProductsEmbeddedItemsInnerAllOf1AssociationsValue';
 import {
-    ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSON,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSONTyped,
-    ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON,
-} from './ProductsEmbeddedItemsInnerAllOf1Associations';
+    ProductsEmbeddedItemsInnerAllOf1AssociationsValueFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1AssociationsValueFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1AssociationsValueToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1AssociationsValue';
 import type { ProductsEmbeddedItemsInnerAllOf1CompletenessesInner } from './ProductsEmbeddedItemsInnerAllOf1CompletenessesInner';
 import {
     ProductsEmbeddedItemsInnerAllOf1CompletenessesInnerFromJSON,
@@ -111,11 +111,11 @@ export interface ProductsEmbeddedItemsInner {
      */
     values?: { [key: string]: Array<ProductsEmbeddedItemsInnerAllOf1ValuesValueInner>; };
     /**
-     * 
-     * @type {ProductsEmbeddedItemsInnerAllOf1Associations}
+     * Several associations related to groups, product models and/or other products, grouped by association types
+     * @type {{ [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsValue; }}
      * @memberof ProductsEmbeddedItemsInner
      */
-    associations?: ProductsEmbeddedItemsInnerAllOf1Associations;
+    associations?: { [key: string]: ProductsEmbeddedItemsInnerAllOf1AssociationsValue; };
     /**
      * 
      * @type {ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations}
@@ -183,7 +183,7 @@ export function ProductsEmbeddedItemsInnerFromJSONTyped(json: any, ignoreDiscrim
         'groups': !exists(json, 'groups') ? undefined : json['groups'],
         'parent': !exists(json, 'parent') ? undefined : json['parent'],
         'values': !exists(json, 'values') ? undefined : json['values'],
-        'associations': !exists(json, 'associations') ? undefined : ProductsEmbeddedItemsInnerAllOf1AssociationsFromJSON(json['associations']),
+        'associations': !exists(json, 'associations') ? undefined : (mapValues(json['associations'], ProductsEmbeddedItemsInnerAllOf1AssociationsValueFromJSON)),
         'quantifiedAssociations': !exists(json, 'quantified_associations') ? undefined : ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsFromJSON(json['quantified_associations']),
         'created': !exists(json, 'created') ? undefined : json['created'],
         'updated': !exists(json, 'updated') ? undefined : json['updated'],
@@ -211,7 +211,7 @@ export function ProductsEmbeddedItemsInnerToJSON(value?: ProductsEmbeddedItemsIn
         'groups': value.groups,
         'parent': value.parent,
         'values': value.values,
-        'associations': ProductsEmbeddedItemsInnerAllOf1AssociationsToJSON(value.associations),
+        'associations': value.associations === undefined ? undefined : (mapValues(value.associations, ProductsEmbeddedItemsInnerAllOf1AssociationsValueToJSON)),
         'quantified_associations': ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociationsToJSON(value.quantifiedAssociations),
         'created': value.created,
         'updated': value.updated,

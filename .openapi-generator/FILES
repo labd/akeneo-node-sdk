@@ -311,7 +311,6 @@ src/models/PostPamAssetsRequest.ts
 src/models/PostProductModelsRequest.ts
 src/models/PostProductsRequest.ts
 src/models/PostProductsRequestAssociations.ts
-src/models/PostProductsRequestAssociationsAssociationTypeCode.ts
 src/models/PostProductsUuidRequest.ts
 src/models/PostReferenceEntityMediaFilesRequest.ts
 src/models/PostReferenceFilesLocaleCode201Response.ts
@@ -374,7 +373,7 @@ src/models/ProductsEmbedded.ts
 src/models/ProductsEmbeddedItemsInner.ts
 src/models/ProductsEmbeddedItemsInnerAllOf.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1.ts
-src/models/ProductsEmbeddedItemsInnerAllOf1Associations.ts
+src/models/ProductsEmbeddedItemsInnerAllOf1AssociationsValue.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1CompletenessesInner.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1Metadata.ts
 src/models/ProductsEmbeddedItemsInnerAllOf1QuantifiedAssociations.ts

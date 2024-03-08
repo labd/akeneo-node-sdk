@@ -13,12 +13,12 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { PostProductsRequestAssociationsAssociationTypeCode } from './PostProductsRequestAssociationsAssociationTypeCode';
+import type { ProductsEmbeddedItemsInnerAllOf1AssociationsValue } from './ProductsEmbeddedItemsInnerAllOf1AssociationsValue';
 import {
-    PostProductsRequestAssociationsAssociationTypeCodeFromJSON,
-    PostProductsRequestAssociationsAssociationTypeCodeFromJSONTyped,
-    PostProductsRequestAssociationsAssociationTypeCodeToJSON,
-} from './PostProductsRequestAssociationsAssociationTypeCode';
+    ProductsEmbeddedItemsInnerAllOf1AssociationsValueFromJSON,
+    ProductsEmbeddedItemsInnerAllOf1AssociationsValueFromJSONTyped,
+    ProductsEmbeddedItemsInnerAllOf1AssociationsValueToJSON,
+} from './ProductsEmbeddedItemsInnerAllOf1AssociationsValue';
 
 /**
  * Several associations related to groups, product models and/or other products, grouped by association types
@@ -28,10 +28,10 @@ import {
 export interface PostProductsRequestAssociations {
     /**
      * 
-     * @type {PostProductsRequestAssociationsAssociationTypeCode}
+     * @type {ProductsEmbeddedItemsInnerAllOf1AssociationsValue}
      * @memberof PostProductsRequestAssociations
      */
-    associationTypeCode?: PostProductsRequestAssociationsAssociationTypeCode;
+    associationTypeCode?: ProductsEmbeddedItemsInnerAllOf1AssociationsValue;
 }
 
 /**
@@ -53,7 +53,7 @@ export function PostProductsRequestAssociationsFromJSONTyped(json: any, ignoreDi
     }
     return {
         
-        'associationTypeCode': !exists(json, 'associationTypeCode') ? undefined : PostProductsRequestAssociationsAssociationTypeCodeFromJSON(json['associationTypeCode']),
+        'associationTypeCode': !exists(json, 'associationTypeCode') ? undefined : ProductsEmbeddedItemsInnerAllOf1AssociationsValueFromJSON(json['associationTypeCode']),
     };
 }
 
@@ -66,7 +66,7 @@ export function PostProductsRequestAssociationsToJSON(value?: PostProductsReques
     }
     return {
         
-        'associationTypeCode': PostProductsRequestAssociationsAssociationTypeCodeToJSON(value.associationTypeCode),
+        'associationTypeCode': ProductsEmbeddedItemsInnerAllOf1AssociationsValueToJSON(value.associationTypeCode),
     };
 }
 

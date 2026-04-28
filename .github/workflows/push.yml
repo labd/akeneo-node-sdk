@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - "main"
+permissions:
+  contents: write
+
 jobs:
   bump-version:
     name: "Bump Version on main"
@@ -13,11 +16,12 @@ jobs:
         uses: "actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744" # v3.6.0
         with:
           ref: ${{ github.ref }}
+          persist-credentials: false
       - name: "cat package.json"
         run: cat ./package.json
       - name: "Automated Version Bump"
         id: version-bump
-        uses: "phips28/gh-action-bump-version@master"
+        uses: "phips28/gh-action-bump-version@215e27a882516826c59df7f09da8c67d5f375cbd" # v11.1.5
         with:
           tag-prefix: "v"
         env:

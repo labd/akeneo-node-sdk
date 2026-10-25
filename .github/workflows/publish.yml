@@ -8,6 +8,10 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: release
+    permissions:
+      contents: read
+      id-token: write # npm trusted publishing (OIDC)
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -16,8 +20,9 @@ jobs:
         with:
           node-version: 24
           package-manager-cache: false
-          registry-url: "https://registry.npmjs.org"
+      - name: Upgrade npm for trusted publishing
+        run: npm i -g npm@^11.6.4
       - run: npm ci
       - run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true

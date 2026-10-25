@@ -16,13 +16,15 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+      - name: Install Node.js, pnpm and dependencies
+        uses: labd/gh-actions-typescript/pnpm-install@ada4548df9a365c62c8b396b583953c6d4bc113f # v1.1.0
         with:
           node-version: 24
-          package-manager-cache: false
+          cache: false
+          frozen-lockfile: true
       - name: Upgrade npm for trusted publishing
         run: npm i -g npm@^11.6.4
-      - run: npm ci
-      - run: npm publish
+      # The release event checks out a tag (detached HEAD), so skip pnpm's branch checks.
+      - run: pnpm publish --no-git-checks
         env:
           NPM_CONFIG_PROVENANCE: true

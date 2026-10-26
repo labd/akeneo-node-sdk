@@ -11,27 +11,47 @@
         "access": "public",
         "provenance": true
     },
+    "type": "commonjs",
     "main": "./dist/index.js",
-    "typings": "./dist/index.d.ts",
-    "module": "./dist/esm/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.mts",
+                "default": "./dist/index.mjs"
+            },
+            "require": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
+        },
+        "./package.json": "./package.json"
+    },
+    "files": [
+        "dist"
+    ],
     "sideEffects": false,
     "engines": {
         "node": ">=22"
     },
     "scripts": {
-        "build": "tsc && tsc -p tsconfig.esm.json",
+        "build": "tsdown",
         "check": "biome check && tsc --noEmit",
         "format": "biome check --write",
         "lint": "biome check",
-        "typecheck": "tsc --noEmit",
+        "lint:package": "publint --strict",
         "prepare": "pnpm run build",
         "publish:ci": "pnpm build && pnpm changeset publish",
-        "publish:version": "pnpm changeset version && pnpm format"
+        "publish:version": "pnpm changeset version && pnpm format",
+        "typecheck": "tsc --noEmit"
     },
     "devDependencies": {
         "@biomejs/biome": "^2.5.15",
         "@changesets/changelog-github": "^1.0.1",
         "@changesets/cli": "^3.0.3",
+        "publint": "^0.3.25",
+        "tsdown": "^0.23.1",
         "typescript": "^7.0.2"
     },
     "packageManager": "pnpm@12.12.0+sha512.2ee06ac86db554cf384421461220f0e336a487bfd41b2acd04e17a86b1487832fe45e8d1743f7fc52acc77de12d2356b536fedf8229fc483239e40b13d474449"

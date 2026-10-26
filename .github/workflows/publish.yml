@@ -1,30 +1,44 @@
-name: Publish
+name: Release
+
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
+
 permissions:
   contents: read
 
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
-  publish:
+  release:
+    name: Release
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     environment: release
     permissions:
-      contents: read
+      contents: write
+      pull-requests: write
       id-token: write # npm trusted publishing (OIDC)
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
+      - name: Checkout repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
       - name: Install Node.js, pnpm and dependencies
         uses: labd/gh-actions-typescript/pnpm-install@ada4548df9a365c62c8b396b583953c6d4bc113f # v1.1.0
         with:
-          node-version: 24
-          cache: false
-          frozen-lockfile: true
+          cache: "false"
+
       - name: Upgrade npm for trusted publishing
         run: npm i -g npm@^11.6.4
-      # The release event checks out a tag (detached HEAD), so skip pnpm's branch checks.
-      - run: pnpm publish --no-git-checks
+
+      - name: Create release pull request or publish to npm
+        uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51 # v2.1.2
+        with:
+          pr-title: "Release new version"
+          commit-message: "chore: release new version"
+          version-script: pnpm publish:version
+          publish-script: pnpm publish:ci
+          push-with-git-cli: true
         env:
           NPM_CONFIG_PROVENANCE: true

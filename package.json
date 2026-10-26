@@ -40,7 +40,6 @@
         "check": "biome check && tsc --noEmit",
         "format": "biome check --write",
         "lint": "biome check",
-        "lint:package": "publint --strict",
         "prepare": "pnpm run build",
         "publish:ci": "pnpm build && pnpm changeset publish",
         "publish:version": "pnpm changeset version && pnpm format",

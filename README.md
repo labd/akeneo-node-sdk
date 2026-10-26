@@ -1,4 +1,7 @@
-## @labdigital/akeneo-node-sdk@1.0.0
+# @labdigital/akeneo-node-sdk
+
+[![npm](https://img.shields.io/npm/v/@labdigital/akeneo-node-sdk)](https://www.npmjs.com/package/@labdigital/akeneo-node-sdk)
+[![CI](https://github.com/labd/akeneo-node-sdk/actions/workflows/ci.yml/badge.svg)](https://github.com/labd/akeneo-node-sdk/actions/workflows/ci.yml)
 
 This generator creates TypeScript/JavaScript client that utilizes [Fetch API](https://fetch.spec.whatwg.org/). The generated Node module can be used in the following environments:
 
